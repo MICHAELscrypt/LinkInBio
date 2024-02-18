@@ -1,11 +1,17 @@
+{% load static %}
+<!-- <img src="{% static 'my_app/example.jpg' %}" alt="My image"> -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>{{ userprofileObject.belongs_to.username }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/boltcss/bolt.min.css"> -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
     <h1>{{ userprofileObject.display_name }}</h1>
-    <p>@{{ userprofileObject.belongs_to.username }}</p>
+    <!-- <p>@{{ userprofileObject.belongs_to.username }}</p> -->
     <p>{{ userprofileObject.description }}</p>
     
     <!-- {% if userprofileObject.youtube1_link != '' %}
@@ -13,12 +19,8 @@
     {% endif %} -->
 
     {% for userLink in userLinkList %}
-        <p>
-            <a href="{{ userLink.belongs_to_socialplatform.link }}{{ userLink.link }}" target="_blank">{{ userLink.text }}</a>
-        </p>
+        <a href="{{ userLink.belongs_to_socialplatform.link }}{{ userLink.link }}" target="_blank">{{ userLink.text }}</a>
     {% endfor %}
 
-
-
-</body>
+    </div>
 </html>
