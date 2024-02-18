@@ -7,6 +7,8 @@ class userprofile(models.Model):
     belongs_to = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=50)
     description = models.CharField(max_length=1024, blank=True)
+    custom_link = models.CharField(max_length=1024, blank=True)
+    custom_text = models.CharField(max_length=1024, blank=True)
     # profile_picture = 
 
     def __str__(self):

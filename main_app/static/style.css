@@ -3,7 +3,7 @@ body {
     color: white;
     /* margin: 10px; */
     padding: 10px;
-    background-color: black;
+    background-color: #0f0f0f;
     max-width: 500px;
     margin-left:auto;
     margin-right:auto;
@@ -27,8 +27,19 @@ a:hover {
 
 h1 {
     background-color: crimson;
-    border: solid 2px white;
+    /* border: solid 2px white; */
+    filter: drop-shadow(3px 3px 0px lightgrey);
     padding: 10px;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
+}
+
+img {
+    /* max-width: 350px; */
+    border: solid 2px crimson;
+    filter: drop-shadow(3px 3px 0px lightgrey);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }

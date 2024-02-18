@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
+    <img src="{% static 'profilepic-002.webp' %}" alt="">
     <h1>{{ userprofileObject.display_name }}</h1>
     <!-- <p>@{{ userprofileObject.belongs_to.username }}</p> -->
     <p>{{ userprofileObject.description }}</p>
     
-    <!-- {% if userprofileObject.youtube1_link != '' %}
-        <a href="https://www.youtube.com/{{ userprofileObject.youtube1_link }}" target="_blank">{{ userprofileObject.youtube1_text }}</a>
-    {% endif %} -->
+    {% if userprofileObject.custom_link and userprofileObejct.custom_text != '' %}
+        <a href="{{ userprofileObject.custom_link }}" target="_blank">{{ userprofileObject.custom_text }}</a>
+    {% endif %}
 
     {% for userLink in userLinkList %}
         <a href="{{ userLink.belongs_to_socialplatform.link }}{{ userLink.link }}" target="_blank">{{ userLink.text }}</a>
