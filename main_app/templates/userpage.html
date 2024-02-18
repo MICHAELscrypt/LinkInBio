@@ -6,6 +6,18 @@
 <body>
     <h1>{{ userprofileObject.belongs_to.username }}</h1>
     <p>{{ userprofileObject.description }}</p>
-    <a href="https://www.youtube.com/{{ userprofileObject.youtube1_link }}" target="_blank">{{ userprofileObject.youtube1_text }}</a>
+    
+    <!-- {% if userprofileObject.youtube1_link != '' %}
+        <a href="https://www.youtube.com/{{ userprofileObject.youtube1_link }}" target="_blank">{{ userprofileObject.youtube1_text }}</a>
+    {% endif %} -->
+
+    {% for userLink in userLinkList %}
+        <p>
+            <a href="{{ userLink.belongs_to_socialplatform.link }}{{ userLink.link }}" target="_blank">{{ userLink.text }}</a>
+        </p>
+    {% endfor %}
+
+
+
 </body>
 </html>
