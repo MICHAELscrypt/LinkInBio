@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import userprofile, userLink, socialPlatform
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from .forms import UserLinkForm
 
 def your_view(request, username):
     # Get the user by username
@@ -13,3 +15,18 @@ def your_view(request, username):
     
     # You can now pass these instances to your template or process them further
     return render(request, 'userpage.html', {'userprofileObject': userprofileObject[0], 'userLinkList': userLinkList})
+
+
+@login_required
+def add_user_link(request):
+    if request.method == 'POST':
+        form = UserLinkForm(request.POST)
+        if form.is_valid():
+            user_link = form.save(commit=False)
+            user_link.belongs_to_user = request.user
+            user_link.save()
+            # Redirect to a new URL:
+            return redirect('home')
+    else:
+        form = UserLinkForm()
+    return render(request, 'add_link_form.html', {'form': form})

@@ -4,7 +4,8 @@
     <title>{{ userprofileObject.belongs_to.username }}</title>
 </head>
 <body>
-    <h1>{{ userprofileObject.belongs_to.username }}</h1>
+    <h1>{{ userprofileObject.display_name }}</h1>
+    <p>@{{ userprofileObject.belongs_to.username }}</p>
     <p>{{ userprofileObject.description }}</p>
     
     <!-- {% if userprofileObject.youtube1_link != '' %}
