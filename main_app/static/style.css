@@ -10,13 +10,16 @@ body {
 }
 
 a {
-    display: block;
+    display: flex;
+    justify-content: left;
+    align-items: center;
     color: crimson;
     text-decoration: none;
     font-weight: bold;
     background-color: #323232;
     padding: 15px;
     margin-bottom: 10px;
+    height: 15px;
 }
 
 a:hover {
@@ -34,7 +37,7 @@ h1 {
     font-family: 'Courier New', Courier, monospace;
 }
 
-img {
+.pfp {
     /* max-width: 350px; */
     border: solid 2px crimson;
     filter: drop-shadow(3px 3px 0px lightgrey);
@@ -43,3 +46,12 @@ img {
     margin-right: auto;
     width: 50%;
 }
+
+.soc-icon {
+    width: 25px;
+    margin-right: 10px;
+}
+
+/* * {
+    outline:1px blue solid;
+} */

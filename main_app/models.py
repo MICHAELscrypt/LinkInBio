@@ -17,7 +17,7 @@ class userprofile(models.Model):
 class socialPlatform(models.Model):
     name = models.CharField(max_length=1024)
     link = models.CharField(max_length=1024)
-    # icon = 
+    icon = models.CharField(null=True, max_length=1024, blank=True)
 
     def __str__(self):
         return self.name

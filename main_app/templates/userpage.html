@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <img src="{% static 'profilepic-002.webp' %}" alt="">
+    <img src="{% static 'profilepic-002.webp' %}" alt="" class="pfp">
     <h1>{{ userprofileObject.display_name }}</h1>
     <!-- <p>@{{ userprofileObject.belongs_to.username }}</p> -->
     <p>{{ userprofileObject.description }}</p>
@@ -20,7 +20,10 @@
     {% endif %}
 
     {% for userLink in userLinkList %}
-        <a href="{{ userLink.belongs_to_socialplatform.link }}{{ userLink.link }}" target="_blank">{{ userLink.text }}</a>
+        <a href="{{ userLink.belongs_to_socialplatform.link }}{{ userLink.link }}" target="_blank">
+            <img src="{% get_static_prefix %}{{ userLink.belongs_to_socialplatform.icon }}" alt="" class="soc-icon">
+            {{ userLink.text }}
+        </a>
     {% endfor %}
 
     </div>
